@@ -42,14 +42,28 @@ lib/
     └── widgets/       # Reusable widgets
 ```
 
+## Platform Support
+
+This app is designed for **mobile platforms only** (Android & iOS) as it requires SMS access which is not available on web or desktop platforms.
+
+- ✅ **Android**: Fully supported
+- ✅ **iOS**: Supported (requires iOS device with SMS capabilities)
+- ❌ **Web**: Not supported (SMS APIs unavailable)
+- ❌ **Desktop** (Windows/Linux/macOS): Not supported (SMS APIs unavailable)
+
 ## Getting Started
 
 ### Prerequisites
 
 - Flutter SDK (>=3.0.0)
 - Dart SDK
-- Android Studio / Xcode (for mobile development)
-- Android device/emulator or iOS simulator
+- **Android Development**:
+  - Android Studio
+  - Android SDK
+  - Android device/emulator (API level 21+)
+- **iOS Development** (optional):
+  - Xcode (macOS only)
+  - iOS device/simulator (iOS 12.0+)
 
 ### Installation
 
@@ -64,9 +78,13 @@ cd Habesha-Expense-Tracker
 flutter pub get
 ```
 
-3. Run the app:
+3. Run the app on your preferred platform:
 ```bash
+# For Android
 flutter run
+
+# For iOS (macOS only)
+flutter run -d ios
 ```
 
 ### Android Setup
@@ -74,6 +92,10 @@ flutter run
 The app requires SMS permissions to function. On first launch, the app will request necessary permissions.
 
 **Note**: For Android 6.0+, SMS permissions must be granted manually through device settings.
+
+### iOS Setup
+
+iOS requires additional configuration for SMS access. Ensure your `Info.plist` includes the necessary permissions (already configured in the project).
 
 ## Usage
 
@@ -86,8 +108,12 @@ The app requires SMS permissions to function. On first launch, the app will requ
 
 ## Permissions
 
+### Android
 - **SMS Read Permission**: Required to read CBE transaction SMS messages
 - **SMS Receive Permission**: Required to automatically detect new transactions
+
+### iOS
+- **SMS Read Permission**: Required to read CBE transaction SMS messages (requires user consent)
 
 ## Security
 
